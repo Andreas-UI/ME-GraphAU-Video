@@ -1,11 +1,13 @@
 import cv2
 import ffmpegcv
+from download_checkpoints import download_checkpoints
 from MEGraphAU.OpenGraphAU.predict import predict
 from MEGraphAU.OpenGraphAU.utils import Image, draw_text
 import json
 
 def test_predict():
     try:
+        download_checkpoints()
         video_path = "videos/v_ArmFlapping_01.mp4"
         cap = cv2.VideoCapture(video_path)
         fps = cap.get(cv2.CAP_PROP_FPS)
@@ -21,7 +23,7 @@ def test_predict():
                 current_time = frame_number / fps
 
                 # Early Stopping for test
-                if current_time > 5:
+                if current_time > 10:
                     break
 
                 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
@@ -30,19 +32,14 @@ def test_predict():
             
                 for (x, y, w, h) in faces: 
                     cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2) 
-                    faces = frame[y:y + h, x:x + w] 
-                    # Display the resulting frame
-                    # cv2.imshow('Frame',frame)
+                    faces = frame[y:y + h, x:x + w]
+                    
                     infostr_aus, pred = predict(Image.fromarray(faces))
 
                     res, f = draw_text(frame, list(infostr_aus), pred, ( (x, y), (x+w, y+h)))
-                    cv2.imshow("frame", f)
-
                     results[current_time] = res
                     output_frames.append(f)
             
-                if cv2.waitKey(25) & 0xFF == ord('q'):
-                    break
             
             # Break the loop
             else: 
