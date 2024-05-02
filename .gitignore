@@ -6,3 +6,5 @@ __pycache__/
 
 # Ignore pytest cache directory
 .pytest_cache/
+
+*.pth
