@@ -1,0 +1,8 @@
+# Ignore Python byte-compiled files
+__pycache__/
+
+# Ignore virtual environment directories
+.venv/
+
+# Ignore pytest cache directory
+.pytest_cache/
