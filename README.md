@@ -37,6 +37,9 @@ Download and insert both of these checkpoints to MEGraphAU > OpenGraphAU > check
 Your folder structure should look something like this.<br>
 ![alt text](image.png)
 
+---
+Alternatively you may run `python download_checkpoints.py`, if it does not work please proceed downloading the files manually.
+
 ## Code
 ```python
 # Import Libraries
