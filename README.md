@@ -1,5 +1,5 @@
 # About
-Our project applies a specific algorithm from a [research paper](https://arxiv.org/abs/2205.01782) to predict Facial Action Units (FAUs). Although the original paper focuses on still images, we've adapted the algorithm to predict FAUs in videos, analyzing each frame individually for face detection.
+Our project applies a specific algorithm from a [research paper](https://arxiv.org/abs/2205.01782) to predict Facial Action Units (FAUs) [code](https://github.com/CVI-SZU/ME-GraphAU). Although the original paper focuses on still images, we've adapted the algorithm to predict FAUs in videos, analyzing each frame individually for face detection.
 
 For our implementation, we've chosen to use the stage 2 of the ResNet50 architecture. It's important to note that modifying parameters may lead to errors due to the specialized nature of our implementation.
 
