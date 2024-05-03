@@ -28,6 +28,18 @@ https://github.com/Andreas-UI/ME-GraphAU-Video/assets/51452532/254fc417-c8b9-468
   Your browser does not support the video tag.
 </video>
 
+# Requirements
+Built under python 3.12 
+| Python | Status |
+| -------- | -------- |
+| 3.9 | :x: Fail|
+| 3.10 |:white_check_mark: |
+| 3.11 | :white_check_mark: |
+| 3.11.5 | :white_check_mark: |
+
+# Important
+Please install ffmpeg on your machine to use this package. [link](https://www.hostinger.my/tutorials/how-to-install-ffmpeg)
+
 # How to Use
 ## Checkpoints
 Download and insert both of these checkpoints to MEGraphAU > OpenGraphAU > checkpoints.
@@ -104,7 +116,6 @@ with open(f"{video_path[:-4]}_output.json", 'w') as f:
     json.dump(results, f)
 
 ```
-
 🎓 Citation
 =
 if the code or method help you in the research, please cite the following paper:
