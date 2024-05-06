@@ -10,7 +10,11 @@ setup(
     author="Andreas Susanto",
     packages=find_packages(),
     include_package_data=True,
-    package_data={'': ['*.yaml']},
+    package_data={'': [
+        'MEGraphAU/OpenGraphAU/config/hybrid_config.yaml',
+        'MEGraphAU/OpenGraphAU/checkpoints/checkpoints.txt',
+        'MEGraphAU/config/BP4D_config.yaml',
+        'MEGraphAU/config/DISFA_config.yaml']},
     install_requires=required,
     license="MIT",
     url="https://github.com/Andreas-UI/ME-GraphAU-Video.git",
