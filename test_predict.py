@@ -1,6 +1,6 @@
 import cv2
 import ffmpegcv
-from download_checkpoints import download_checkpoints
+from MEGraphAU.download_checkpoints import download_checkpoints
 from MEGraphAU.OpenGraphAU.predict import predict
 from MEGraphAU.OpenGraphAU.utils import Image, draw_text
 import json
