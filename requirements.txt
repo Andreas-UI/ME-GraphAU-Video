@@ -32,7 +32,7 @@ sympy==1.12
 tbb==2021.12.0
 timm==0.9.16
 tomli==2.0.1
-torch==2.3.0
+torch==2.2.2
 torchvision==0.17.2
 tqdm==4.66.4
 typing_extensions==4.11.0
