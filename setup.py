@@ -3,13 +3,12 @@ with open("requirements.txt") as f:
     required = f.read().splitlines()
 
 setup(
-    name="me_gau",
+    name="MEGraphAU",
     version="v0.0.1",
     description="""A tool to perdict face action unit (FAU) and emotion from video.""",
     long_description_content_type="text/markdown",
     author="Andreas Susanto",
-    packages=find_packages(include=["vcab"]),
-    package_data={'': ['*.ckpt']},
+    packages=find_packages(include=["MEGraphAU"]),
     install_requires=required,
     license="MIT",
     url="https://github.com/Andreas-UI/ME-GraphAU-Video.git",
