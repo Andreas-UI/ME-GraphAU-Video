@@ -1,5 +1,6 @@
 from .utils import *
 from .conf import get_config,set_logger,set_outdir,set_env
+import pkg_resources
 
 conf = get_config()
 conf.evaluate = True
@@ -7,7 +8,7 @@ set_env(conf)
 set_outdir(conf)
 set_logger(conf)
 
-def predict(img, stage=2, arc="resnet50", resume="MEGraphAU/OpenGraphAU/checkpoints/OpenGprahAU-ResNet50_second_stage.pth"):
+def predict(img, stage=2, arc="resnet50", resume=pkg_resources.resource_filename("MEGraphAU", "OpenGraphAU/checkpoints/OpenGprahAU-ResNet50_second_stage.pth")):
     dataset_info = hybrid_prediction_infolist
 
     if stage == 1:
