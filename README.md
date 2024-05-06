@@ -82,7 +82,6 @@ while(cap.isOpened()):
         faces = face_cascade.detectMultiScale(gray, 1.1, 4) 
     
         for (x, y, w, h) in faces: 
-            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2) 
             faces = frame[y:y + h, x:x + w]
 
             # Predict the face on this frame.
@@ -90,10 +89,12 @@ while(cap.isOpened()):
 
             # Draw the results
             res, f = draw_text(frame, list(infostr_aus), pred, ( (x, y), (x+w, y+h)))
-            cv2.imshow("frame", f)
-
+            
             results[current_time] = res
-            output_frames.append(f)
+
+            frame = cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2) 
+        
+        output_frames.append(frame)
     
         if cv2.waitKey(25) & 0xFF == ord('q'):
             break
