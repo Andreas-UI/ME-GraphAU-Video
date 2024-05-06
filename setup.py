@@ -8,7 +8,7 @@ setup(
     description="""A tool to perdict face action unit (FAU) and emotion from video.""",
     long_description_content_type="text/markdown",
     author="Andreas Susanto",
-    packages=find_packages(include=["MEGraphAU"]),
+    packages=find_packages(include=["*"]),
     install_requires=required,
     license="MIT",
     url="https://github.com/Andreas-UI/ME-GraphAU-Video.git",
