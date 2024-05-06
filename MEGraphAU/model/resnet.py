@@ -7,6 +7,8 @@ import math
 import torch
 import torch.nn as nn
 import torchvision.models
+import pkg_resources
+
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152']
 
 # you need to download the models to ~/.torch/models
@@ -18,7 +20,8 @@ __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152
 #     'resnet152': 'https://download.pytorch.org/models/resnet152-b121ed2d.pth',
 # }
 
-models_dir = os.path.expanduser('checkpoints')
+# models_dir = os.path.expanduser('checkpoints')
+models_dir = pkg_resources.resource_filename("MEGraphAU", "OpenGraphAU/checkpoints")
 model_name = {
     'resnet18': 'resnet18-5c106cde.pth',
     'resnet34': 'resnet34-333f7ec4.pth',

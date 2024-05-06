@@ -11,6 +11,7 @@ import logging
 import shutil
 import yaml
 from yaml import Loader
+import pkg_resources
 
 
 parser = argparse.ArgumentParser(description='PyTorch Training')
@@ -101,7 +102,7 @@ def get_config():
             datasets_cfg = edict(datasets_cfg)
 
     elif cfg.dataset == 'hybrid':
-        with open('MEGraphAU/OpenGraphAU/config/hybrid_config.yaml', 'r') as f:
+        with open(pkg_resources.resource_filename("MEGraphAU", "OpenGraphAU/config/hybrid_config.yaml"), 'r') as f:
             datasets_cfg = yaml.load(f, Loader)
             datasets_cfg = edict(datasets_cfg)
     else:

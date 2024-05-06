@@ -1,6 +1,7 @@
 import os
 import requests
 import gdown  # For Google Drive links
+import pkg_resources
 
 def download_file(url, destination):
     """
@@ -29,5 +30,8 @@ def download_checkpoints():
     google_drive_link = "https://drive.google.com/uc?id=1UMnpbj_YKlqHF1m0DHV0KYD3qmcOmeXp"
     other_link = "https://download.pytorch.org/models/resnet50-19c8e357.pth"
 
-    download_file(google_drive_link, os.path.join(os.getcwd(), "MEGraphAU/OpenGraphAU/checkpoints/OpenGprahAU-ResNet50_second_stage.pth"))
-    download_file(other_link, os.path.join(os.getcwd(), "MEGraphAU/OpenGraphAU/checkpoints/resnet50-19c8e357.pth"))
+    # download_file(google_drive_link, os.path.join(os.getcwd(), "MEGraphAU/OpenGraphAU/checkpoints/OpenGprahAU-ResNet50_second_stage.pth"))
+    # download_file(other_link, os.path.join(os.getcwd(), "MEGraphAU/OpenGraphAU/checkpoints/resnet50-19c8e357.pth"))
+    
+    download_file(google_drive_link, os.path.join(os.getcwd(), pkg_resources.resource_filename("MEGraphAU","OpenGraphAU/checkpoints/OpenGprahAU-ResNet50_second_stage.pth")))
+    download_file(other_link, os.path.join(os.getcwd(), pkg_resources.resource_filename("MEGraphAU","OpenGraphAU/checkpoints/resnet50-19c8e357.pth")))
