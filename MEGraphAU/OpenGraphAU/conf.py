@@ -139,8 +139,8 @@ def set_outdir(conf):
         outdir = os.path.join(outdir,prefix)
     ensure_dir(outdir)
     conf['outdir'] = outdir
-    shutil.copyfile("MEGraphAU/model/MEFL.py", os.path.join(outdir,'MEFL.py'))
-    shutil.copyfile("MEGraphAU/model/ANFL.py", os.path.join(outdir,'ANFL.py'))
+    # shutil.copyfile("MEGraphAU/model/MEFL.py", os.path.join(outdir,'MEFL.py'))
+    # shutil.copyfile("MEGraphAU/model/ANFL.py", os.path.join(outdir,'ANFL.py'))
 
     return conf
 
