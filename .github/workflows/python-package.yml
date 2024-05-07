@@ -31,7 +31,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Install FFMPEG
       run: |
-        sudo apt install ffmpeg
+        brew install ffmpeg
     - name: Test with pytest
       run: |
         pytest test_predict.py
