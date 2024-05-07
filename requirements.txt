@@ -1,5 +1,5 @@
 beautifulsoup4==4.12.3
-certifi==2024.2.2
+certifi==2024.2.2 ; platform_system=="Windows"
 charset-normalizer==3.3.2
 colorama==0.4.6
 easydict==1.13
@@ -14,7 +14,7 @@ iniconfig==2.0.0
 intel-openmp==2021.4.0 ; platform_system=="Windows"
 Jinja2==3.1.3
 MarkupSafe==2.1.5
-mkl==2021.4.0
+mkl==2021.4.0 ; platform_system=="Windows"
 mpmath==1.3.0
 networkx==3.3
 numpy==1.26.4
@@ -29,7 +29,7 @@ requests==2.31.0
 safetensors==0.4.3
 soupsieve==2.5
 sympy==1.12
-tbb==2021.12.0
+tbb==2021.12.0 ; platform_system=="Windows"
 timm==0.9.16
 tomli==2.0.1
 torch==2.2.2
