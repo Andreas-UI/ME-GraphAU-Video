@@ -5,14 +5,14 @@ name: Python package
 
 on:
   push:
-    branches: [ "main", "test/mac"]
+    branches: [ "main", "test/workflow-mac"]
   pull_request:
-    branches: [ "main", "test/mac"]
+    branches: [ "main", "test/workflow-mac"]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       fail-fast: false
       matrix:
