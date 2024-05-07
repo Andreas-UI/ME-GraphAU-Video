@@ -5,14 +5,14 @@ name: Python package
 
 on:
   push:
-    branches: [ "main", "test/mac"]
+    branches: [ "main", "test/workflow-mac"]
   pull_request:
-    branches: [ "main", "test/mac"]
+    branches: [ "main", "test/workflow-mac"]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       fail-fast: false
       matrix:
@@ -31,7 +31,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Install FFMPEG
       run: |
-        sudo apt install ffmpeg
+        brew install ffmpeg
     - name: Test with pytest
       run: |
         pytest test_predict.py
