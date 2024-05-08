@@ -5,7 +5,6 @@ from MEGraphAU.OpenGraphAU.utils import Image, draw_text
 import json
 from ultralytics import YOLO
 
-
 yolo = YOLO("yolov8n-face.pt")
 
 video_path = "videos/v_ArmFlapping_01.mp4"
