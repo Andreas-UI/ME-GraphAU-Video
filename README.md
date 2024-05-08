@@ -60,6 +60,7 @@ import ffmpegcv
 from MEGraphAU.OpenGraphAU.predict import predict
 from MEGraphAU.OpenGraphAU.utils import Image, draw_text
 import json
+from ultralytics import YOLO
 
 video_path = "videos/v_ArmFlapping_01.mp4"
 cap = cv2.VideoCapture(video_path)

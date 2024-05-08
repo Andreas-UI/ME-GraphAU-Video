@@ -9,7 +9,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Andreas Susanto",
     packages=find_packages(),
-    package_data={"": ["**/*.txt", "**/*.yaml"]},
+    package_data={"": ["**/*.txt", "**/*.yaml", "**/*.pt"]},
     install_requires=required,
     license="MIT",
     url="https://github.com/Andreas-UI/ME-GraphAU-Video.git",
