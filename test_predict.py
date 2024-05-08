@@ -4,6 +4,9 @@ from MEGraphAU.download_checkpoints import download_checkpoints
 from MEGraphAU.OpenGraphAU.predict import predict
 from MEGraphAU.OpenGraphAU.utils import Image, draw_text
 import json
+from ultralytics import YOLO
+
+yolo = YOLO("yolov8n-face.pt")
 
 def test_predict():
     try:
@@ -22,24 +25,25 @@ def test_predict():
                 frame_number = cap.get(cv2.CAP_PROP_POS_FRAMES)
                 current_time = frame_number / fps
 
-                # Early Stopping for test
-                if current_time > 10:
+                if current_time > 5:
                     break
 
-                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
-                face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml') 
-                faces = face_cascade.detectMultiScale(gray, 1.1, 4) 
-            
-                for (x, y, w, h) in faces: 
-                    faces = frame[y:y + h, x:x + w]
-                    
-                    infostr_aus, pred = predict(Image.fromarray(faces))
+                faces = yolo.predict(frame, conf=0.40, iou=0.3)
+                for face in faces:
+                    parameters = face.boxes
 
-                    res, f = draw_text(frame, list(infostr_aus), pred, ( (x, y), (x+w, y+h)))
-                    results[current_time] = res
+                    for box in parameters:
+                        x1, y1, x2, y2 = box.xyxy[0]
+                        x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+                        h, w = y2 - y1, x2 - x1
+                        faces = frame[y1:y1 + h, x1:x1 + w] 
 
-                    frame = cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2) 
-            
+                        infostr_aus, pred = predict(Image.fromarray(faces))
+                        res, f = draw_text(frame, list(infostr_aus), pred, ( (x1, y1), (x1+w, y1+h)))
+                        results[current_time] = res
+
+                        frame = cv2.rectangle(frame, (x1, y1), (x1+w, y1+h), (0, 0, 255), 2) 
+
                 output_frames.append(frame)
             
             # Break the loop
@@ -48,7 +52,6 @@ def test_predict():
 
         cap.release()
 
-        size = output_frames[0].shape
         output_video = ffmpegcv.VideoWriter(f"{video_path[:-4]}_output.mp4", None, fps)
 
         for of in output_frames:
