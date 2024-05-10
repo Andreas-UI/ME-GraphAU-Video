@@ -1,6 +1,8 @@
 from .utils import *
 from .conf import get_config,set_logger,set_outdir,set_env
 import pkg_resources
+from MEGraphAU.download_checkpoints import download_checkpoints
+import os
 
 conf = get_config()
 conf.evaluate = True
@@ -9,6 +11,10 @@ set_outdir(conf)
 set_logger(conf)
 
 def predict(img, stage=2, arc="resnet50", resume=pkg_resources.resource_filename("MEGraphAU", "OpenGraphAU/checkpoints/OpenGprahAU-ResNet50_second_stage.pth")):
+    if "resnet50-19c8e357.pth" not in os.listdir(pkg_resources.resource_filename("MEGraphAU", "OpenGraphAU/checkpoints")) or "OpenGprahAU-ResNet50_second_stage.pth" not in os.listdir(pkg_resources.resource_filename("MEGraphAU", "OpenGraphAU/checkpoints")) :
+        print("Checkpoints are not downloaded")
+        download_checkpoints()
+
     dataset_info = hybrid_prediction_infolist
 
     if stage == 1:
